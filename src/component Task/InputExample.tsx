@@ -1,19 +1,28 @@
+import { type } from "os";
 import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { TaskPropsType } from "./Example";
 
+type InputExamplePropsType = {
+    task: Array<TaskPropsType>
+}
 
 export const InputExample = () => {
 let [value, setValue] = useState('');
 
-function onClickHandler(){
-    console.log(value)
-}
-
 function onChangeHandler(event: ChangeEvent<HTMLInputElement>){
-  console.log(setValue(event.currentTarget.value))
+ setValue(event.currentTarget.value)
+}
+function onClickHandler(props: InputExamplePropsType){
+    if (setValue ==) {
+        alert('good')
+    }else {
+        alert('No try again')
+    }
+    
 }
 
 function buy(){
-   
+   alert('Пока! Возвращайся ещё!')  
 }
     return(
         <div>
