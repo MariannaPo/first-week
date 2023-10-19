@@ -6,21 +6,16 @@ type InputExamplePropsType = {
     task: Array<TaskPropsType>
 }
 
-export const InputExample = () => {
+export const InputExample = (props: InputExamplePropsType) => {
 let [value, setValue] = useState('');
 
 function onChangeHandler(event: ChangeEvent<HTMLInputElement>){
- setValue(event.currentTarget.value)
+ let a = setValue(event.currentTarget.value);
+ console.log(a)
 }
-function onClickHandler(props: InputExamplePropsType){
-    if (setValue ==) {
-        alert('good')
-    }else {
-        alert('No try again')
-    }
-    
-}
+// function onClickHandler(){
 
+// }
 function buy(){
    alert('Пока! Возвращайся ещё!')  
 }
@@ -29,7 +24,7 @@ function buy(){
             <input type="number" placeholder="введите ответ" value={value} onChange={onChangeHandler}/>
             
             <div>
-                <button onClick={onClickHandler}>отправить</button> 
+                <button>отправить</button> 
                 <button onClick={buy}>отменить</button> 
             </div>
             
