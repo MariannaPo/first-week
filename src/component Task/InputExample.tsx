@@ -3,19 +3,22 @@ import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
 import { TaskPropsType } from "./Example";
 
 type InputExamplePropsType = {
-    task: Array<TaskPropsType>
+    answer: number
 }
 
 export const InputExample = (props: InputExamplePropsType) => {
-let [value, setValue] = useState('');
+const [value, setValue] = useState('');
 
 function onChangeHandler(event: ChangeEvent<HTMLInputElement>){
- let a = setValue(event.currentTarget.value);
- console.log(a)
+    setValue(event.currentTarget.value);
 }
-// function onClickHandler(){
-
-// }
+function onClickHandler(){
+ if (Number(value) === props.answer){
+    console.log('so good')
+ }else{
+    console.log('nonono')
+ }
+}
 function buy(){
    alert('Пока! Возвращайся ещё!')  
 }
@@ -24,7 +27,7 @@ function buy(){
             <input type="number" placeholder="введите ответ" value={value} onChange={onChangeHandler}/>
             
             <div>
-                <button>отправить</button> 
+                <button onClick={onClickHandler}>отправить</button> 
                 <button onClick={buy}>отменить</button> 
             </div>
             

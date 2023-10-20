@@ -14,7 +14,7 @@ return(
     <div>
         <h2>Решите пример чтобы войти</h2>
         <h1>{props.task[0].taska}</h1>
-        <InputExample/>
+        <InputExample answer={props.task[0].answer}/>
     </div>
 )
 }
