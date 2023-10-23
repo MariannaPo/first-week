@@ -4,7 +4,7 @@ import { ExampleTaskPropsType } from "./Example";
 
 type InputExamplePropsType = {
     answer: number,
-    wrongAnswer: () => void,
+    onWrongAnswer: (wrongAnswer: string) => void,
 }
 
 export const InputExample = (props: InputExamplePropsType) => {
@@ -17,7 +17,7 @@ function onClickHandler(){
  if (Number(value) === props.answer){
    console.log('yeees')
  }else{
-    {props.wrongAnswer()}
+    props.onWrongAnswer(value)
  }
 }
 function buy(){
