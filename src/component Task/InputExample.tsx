@@ -1,9 +1,10 @@
 import { type } from "os";
 import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
-import { TaskPropsType } from "./Example";
+import { ExampleTaskPropsType } from "./Example";
 
 type InputExamplePropsType = {
-    answer: number
+    answer: number,
+    wrongAnswer: () => void,
 }
 
 export const InputExample = (props: InputExamplePropsType) => {
@@ -14,9 +15,9 @@ function onChangeHandler(event: ChangeEvent<HTMLInputElement>){
 }
 function onClickHandler(){
  if (Number(value) === props.answer){
-    console.log('so good')
+   console.log('yeees')
  }else{
-    console.log('nonono')
+    {props.wrongAnswer()}
  }
 }
 function buy(){
