@@ -4,7 +4,7 @@ import './App.css';
 import { Example } from './component Task/Example';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Greeting } from './component Task/Greeting';
-
+import { Wrong } from './component Task/Wrong';
 
 
 function App() {
@@ -14,9 +14,8 @@ function App() {
     {id:2, taska:`4+9`, answer:13}
 ])
 
-const [active, setActive] = useState(true)
-
 const wrongAnswer = () => {
+  history.pushState()
   
 }
 
@@ -25,6 +24,7 @@ const wrongAnswer = () => {
       <Routes>
         <Route path='/' element={<Greeting/>}/>
         <Route path='/example' element={<Example task={task} wrongAnswer={wrongAnswer}/>}/>
+        <Route path='/wrong' element={<Wrong/>}/>
       </Routes>
     </div>
   );

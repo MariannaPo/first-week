@@ -1,5 +1,7 @@
 import React from "react";
 import { InputExample } from "./InputExample";
+import { type } from "os";
+import { tab } from "@testing-library/user-event/dist/tab";
 import { Link } from "react-router-dom";
 
 export type ExampleTaskPropsType = {
