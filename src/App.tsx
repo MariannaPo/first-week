@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Example } from './component Task/Example';
-import { Modal } from './component Task/Modal';
+import { Routes, Route, Link } from 'react-router-dom';
+import { Greeting } from './component Task/Greeting';
 
 
 
@@ -21,8 +22,10 @@ const wrongAnswer = () => {
 
   return (
     <div className="App">
-     <Example task={task} wrongAnswer={wrongAnswer}/>
-     <Modal active = {active} setActive={setActive(true)}/>
+      <Routes>
+        <Route path='/' element={<Greeting/>}/>
+        <Route path='/example' element={<Example task={task} wrongAnswer={wrongAnswer}/>}/>
+      </Routes>
     </div>
   );
 }
