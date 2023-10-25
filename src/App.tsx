@@ -6,6 +6,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Greeting } from './component Task/Greeting';
 import { Wrong } from './component Task/Wrong';
 import { CancelButton } from './component Task/CancelButton';
+import { FactsList } from './component Task/Facts component/FactsList';
 
 
 function App() {
@@ -38,6 +39,7 @@ const cancelHandleClick = () => {
         <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
+        <Route path='factsList' element={<FactsList/>}/>
       </Routes>
     </div>
   );
