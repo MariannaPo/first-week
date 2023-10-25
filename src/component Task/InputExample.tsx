@@ -17,7 +17,9 @@ function onChangeHandler(event: ChangeEvent<HTMLInputElement>){
 function onClickHandler(){
  if (Number(value) === props.answer){
    console.log('yeees')
- }else{
+ }else if (value === ''){
+    alert('введите ответ')
+}else{
     props.onWrongAnswer(value)
  }
 }
