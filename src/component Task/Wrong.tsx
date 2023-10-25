@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate, } from "react-router-dom";
 
-export const Wrong = () => {
+type WrongPropsType={
+    tryAgain: ()=>void,
+    cancelHandleClick: ()=>void,
+}
+
+export const Wrong = (props: WrongPropsType) => {
     const location = useLocation();
 
 
@@ -11,7 +16,13 @@ export const Wrong = () => {
     
         <div>
             <Link to='/wrong'></Link>
-            <h2>your wrong answer: {location.state?.wrongAnswer}</h2>
+            <h2>Ваш ответ неверный: {location.state?.wrongAnswer}</h2>
+            <div>
+                <h3>Хотите попробовать еще раз?</h3>
+                <button onClick={props.tryAgain}>Да</button>
+                <button onClick={props.cancelHandleClick}>Нет</button>
+            </div>
+            
         </div>
     )
 }

@@ -5,6 +5,7 @@ import { Example } from './component Task/Example';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Greeting } from './component Task/Greeting';
 import { Wrong } from './component Task/Wrong';
+import { CancelButton } from './component Task/CancelButton';
 
 
 function App() {
@@ -22,12 +23,21 @@ const handleWrongAnswer = (wrongAnswer:string) => {
   })
 }
 
+const tryAgain = () => {
+  navigate('/example')
+}
+
+const cancelHandleClick = () => {
+  navigate('/cancel')
+}
+
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Greeting/>}/>
-        <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer}/>}/>
-        <Route path='/wrong' element={<Wrong />}/>
+        <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick}/>}/>
+        <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
+        <Route path='/cancel' element={<CancelButton/>}/>
       </Routes>
     </div>
   );

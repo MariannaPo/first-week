@@ -5,6 +5,7 @@ import { ExampleTaskPropsType } from "./Example";
 type InputExamplePropsType = {
     answer: number,
     onWrongAnswer: (wrongAnswer: string) => void,
+    cancelHandleClick: ()=> void,
 }
 
 export const InputExample = (props: InputExamplePropsType) => {
@@ -21,7 +22,7 @@ function onClickHandler(){
  }
 }
 function buy(){
-   alert('Пока! Возвращайся ещё!')  
+   props.cancelHandleClick() 
 }
     return(
         <div>
