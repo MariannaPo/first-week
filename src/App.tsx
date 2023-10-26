@@ -16,6 +16,15 @@ function App() {
     {id:2, taska:`4+9`, answer:13}
 ])
 
+ const facts = [
+{id: 1, title: 'В современных персональных компьютерах 1 байт равен 8 битам;', article: "ℒ𝑜𝓇𝑒𝓂 𝒾𝓅𝓈𝓊𝓂 𝒹𝑜𝓁𝑜𝓇 𝓈𝒾𝓉 𝒶𝓂𝑒𝓉"},
+{id: 2, title: "Атомный номер кислорода равен 8;", article: 'Ｌｏｒｅｍ ｉｐｓｕｍ ｄｏｌｏｒ ｓｉｔ ａｍｅｔ'},
+{id: 3, title: "В солнечной системе 8 планет;", article: '𝕷𝖔𝖗𝖊𝖒 𝖎𝖕𝖘𝖚𝖒 𝖉𝖔𝖑𝖔𝖗 𝖘𝖎𝖙 𝖆𝖒𝖊𝖙'},
+{id: 4, title: "В октете 8 музыкантов;", article: 'L̷o̷r̷e̷m̷ i̷p̷s̷u̷m̷ d̷o̷l̷o̷r̷ s̷i̷t̷ a̷m̷e̷t̷'},
+{id: 5, title: "Все паукообразные имеют 8 ног", article: 'Lπφεl нσгτl dπκπφ гнs λlεs'},
+{id: 6, title: "Восьмой по счету музыкальный интервал – октава", article: 'ꪶꪮ᥅ꫀꪑ ꠸ρᦓꪊꪑ ᦔꪮꪶꪮ᥅ ᦓ꠸ꪻ ꪖꪑꫀꪻ'},
+]
+
 const handleWrongAnswer = (wrongAnswer:string) => {
   navigate('/wrong', {
     state: {
@@ -39,7 +48,7 @@ const cancelHandleClick = () => {
         <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
-        <Route path='factsList' element={<FactsList/>}/>
+        <Route path='factsList' element={<FactsList facts={facts}/>}/>
       </Routes>
     </div>
   );

@@ -1,15 +1,20 @@
+import { type } from "os";
 import React from "react";
 
-export const FactsList = () => {
+type FactsListPropsType = {
+    facts: Array<{id: number, title: string, article: string}>
+}
+
+export const FactsList = (props: FactsListPropsType) => {
+
     return(
         <div>
             <h1>Что интересного свзяно с цифрой 8?</h1>
-        <ol>
-            <li><p><input type="checkbox" name="list[]" value="кто-нибудь"/> кто-нибудь</p></li>
-            <li><p><input type="checkbox" name="list[]" value="еще кто-нибудь"/> еще кто-нибудь</p></li> 
-        </ol>
-            
-        
+            {props.facts.map((f)=>
+                 <ol>
+                     <li><p><input type="checkbox" value={f.id}/>{f.title}</p></li>
+                </ol>
+            )}
         </div>
     )
 }
