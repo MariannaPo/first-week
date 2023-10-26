@@ -40,15 +40,22 @@ const tryAgain = () => {
 const cancelHandleClick = () => {
   navigate('/cancel')
 }
+const trueAnswer = () => {
+  navigate('/factsList')
+}
+
+const exitButton = () => {
+  navigate('/')
+}
 
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Greeting/>}/>
-        <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick}/>}/>
+        <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick} trueAnswer={trueAnswer}/>}/>
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
-        <Route path='factsList' element={<FactsList facts={facts}/>}/>
+        <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton}/>}/>
       </Routes>
     </div>
   );

@@ -6,6 +6,7 @@ type InputExamplePropsType = {
     answer: number,
     onWrongAnswer: (wrongAnswer: string) => void,
     cancelHandleClick: ()=> void,
+    trueAnswer: ()=>void,
 }
 
 export const InputExample = (props: InputExamplePropsType) => {
@@ -16,7 +17,7 @@ function onChangeHandler(event: ChangeEvent<HTMLInputElement>){
 }
 function onClickHandler(){
  if (Number(value) === props.answer){
-   console.log('yeees')
+    props.trueAnswer()
  }else if (value === ''){
     alert('введите ответ')
 }else{
