@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 type OpenArticlePropsType = {
-    facts: Array<{id: number, title: string, article: string}>,
+    facts: Array<{id: number, title: string, article: string, isNoted: boolean}>,
 }
 
 export const OpenArticle = (props: OpenArticlePropsType) => {

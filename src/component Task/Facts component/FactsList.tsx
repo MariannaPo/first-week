@@ -3,7 +3,7 @@ import React, { ChangeEvent, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 type FactsListPropsType = {
-    facts: Array<{id: number, title: string, article: string}>,
+    facts: Array<{id: number, title: string, article: string, isNoted: boolean}>,
     exit:()=>void,
 }
 
@@ -30,7 +30,7 @@ export const FactsList = (props: FactsListPropsType) => {
             <h5>*отметьте несколько интересующих фактов и нажмите продолжить чтобы узнать подробнее</h5>
             {props.facts.map((f)=>
                  <ul>
-                     <li><p><input type="checkbox" value={f.id}/>{f.title} onChange={f.id}</p></li>
+                     <li><p><input type="checkbox" value={f.id} checked={f.isNoted}/>{f.title} </p></li>
                 </ul>
             )}
             <button>Продолжить</button>
