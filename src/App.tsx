@@ -7,6 +7,7 @@ import { Greeting } from './component Task/Greeting';
 import { Wrong } from './component Task/Wrong';
 import { CancelButton } from './component Task/CancelButton';
 import { FactsList } from './component Task/Facts component/FactsList';
+import { OpenArticle } from './component Task/Facts component/OpenArticle';
 
 
 function App() {
@@ -48,6 +49,15 @@ const exitButton = () => {
   navigate('/')
 }
 
+// const openArticle = (idArticle: number) => {
+// navigate('/article', {
+//   state: {
+//     idArticle
+//   }
+// })
+// }
+
+
   return (
     <div className="App">
       <Routes>
@@ -56,6 +66,7 @@ const exitButton = () => {
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
         <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton}/>}/>
+        <Route path='/article' element={<OpenArticle facts={facts} />}/>
       </Routes>
     </div>
   );

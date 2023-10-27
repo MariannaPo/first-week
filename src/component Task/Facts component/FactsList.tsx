@@ -1,5 +1,5 @@
 import { type } from "os";
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 type FactsListPropsType = {
@@ -10,6 +10,19 @@ type FactsListPropsType = {
 export const FactsList = (props: FactsListPropsType) => {
     const location = useLocation();
 
+    const [article, setArticle] = useState('');
+
+    function chekedHandler(event: ChangeEvent<HTMLInputElement>){
+        setArticle(event.currentTarget.value);
+    }
+
+    // const checkedFilter = () => {
+    //     if(){
+
+    //     }else{
+
+    //     }
+    // }
 
     return(
         <div>
@@ -17,7 +30,7 @@ export const FactsList = (props: FactsListPropsType) => {
             <h5>*отметьте несколько интересующих фактов и нажмите продолжить чтобы узнать подробнее</h5>
             {props.facts.map((f)=>
                  <ul>
-                     <li><p><input type="checkbox" value={f.id}/>{f.title}</p></li>
+                     <li><p><input type="checkbox" value={f.id}/>{f.title} onChange={f.id}</p></li>
                 </ul>
             )}
             <button>Продолжить</button>
