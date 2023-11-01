@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Example } from './component Task/Example';
@@ -25,6 +25,12 @@ function App() {
 {id: 5, title: "Все паукообразные имеют 8 ног", article: 'Lπφεl нσгτl dπκπφ гнs λlεs' , isNoted: false},
 {id: 6, title: "Восьмой по счету музыкальный интервал – октава", article: 'ꪶꪮ᥅ꫀꪑ ꠸ρᦓꪊꪑ ᦔꪮꪶꪮ᥅ ᦓ꠸ꪻ ꪖꪑꫀꪻ' , isNoted: false},
 ])
+
+const [cheked, setCheked] = useState('')
+
+function onChangeFactsHandler(event: ChangeEvent<HTMLInputElement>){
+  setCheked(event.currentTarget.value);
+}
 
 const handleWrongAnswer = (wrongAnswer:string) => {
   navigate('/wrong', {
@@ -58,6 +64,14 @@ const exitButton = () => {
 // }
 
 
+const openArt = (isNoted: boolean)=>{
+let resultFilt = facts.filter(f=>{
+  if(f.isNoted === true){
+    setFacts(resultFilt)
+  }
+})
+}
+
   return (
     <div className="App">
       <Routes>
@@ -65,7 +79,7 @@ const exitButton = () => {
         <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick} trueAnswer={trueAnswer}/>}/>
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
-        <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton}/>}/>
+        <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton} onChangeFactsHandler={onChangeFactsHandler}/>}/>
         <Route path='/article' element={<OpenArticle facts={facts} />}/>
       </Routes>
     </div>
