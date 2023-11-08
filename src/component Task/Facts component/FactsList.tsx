@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 type FactsListPropsType = {
     facts: Array<{id: number, title: string, article: string, isNoted: boolean}>,
     exit:()=>void,
-    onChangeFactsHandler: ()=>void,
+    onChangeFactsHandler: (event: ChangeEvent<HTMLInputElement>)=>void,
 }
 
 export const FactsList = (props: FactsListPropsType) => {
