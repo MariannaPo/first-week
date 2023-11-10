@@ -26,10 +26,16 @@ function App() {
 {id: 6, title: "Восьмой по счету музыкальный интервал – октава", article: 'ꪶꪮ᥅ꫀꪑ ꠸ρᦓꪊꪑ ᦔꪮꪶꪮ᥅ ᦓ꠸ꪻ ꪖꪑꫀꪻ' , isNoted: false},
 ])
 
-const [cheked, setCheked] = useState('')
+const [article, setArticle] = useState('');
+    
 
-function onChangeFactsHandler(event: ChangeEvent<HTMLInputElement>){
-  setCheked(event.currentTarget.value);
+
+function checkedFacts(factId: number, isNoted: boolean){
+  let fact = facts.find(t => t.id === factId); 
+   if(fact){
+   fact.isNoted = !fact.isNoted
+   }
+   setFacts(facts)
 }
 
 const handleWrongAnswer = (wrongAnswer:string) => {
@@ -55,22 +61,13 @@ const exitButton = () => {
   navigate('/')
 }
 
-// const openArticle = (idArticle: number) => {
-// navigate('/article', {
-//   state: {
-//     idArticle
+// const openArt = (isNoted: boolean)=>{
+// let resultFilt = facts.filter(f=>{
+//   if(f.isNoted === true){
+//     setFacts(resultFilt)
 //   }
 // })
 // }
-
-
-const openArt = (isNoted: boolean)=>{
-let resultFilt = facts.filter(f=>{
-  if(f.isNoted === true){
-    setFacts(resultFilt)
-  }
-})
-}
 
   return (
     <div className="App">
@@ -79,7 +76,7 @@ let resultFilt = facts.filter(f=>{
         <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick} trueAnswer={trueAnswer}/>}/>
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
-        <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton} onChangeFactsHandler={onChangeFactsHandler}/>}/>
+        <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton} checkedFacts={checkedFacts} />}/>
         <Route path='/article' element={<OpenArticle facts={facts} />}/>
       </Routes>
     </div>
