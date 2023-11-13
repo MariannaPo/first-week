@@ -73,7 +73,7 @@ const openArticle = () => {
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
         <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton} checkedFacts={checkedFacts} openArticle={openArticle}/>}/>
-        <Route path='/article' element={<OpenArticle facts={facts.filter((f)=>{f.isNoted === true})} />}/>
+        <Route path='/article' element={<OpenArticle facts={facts.filter((f)=>{return f.isNoted === true})} />}/>
       </Routes>
     </div>
   );
