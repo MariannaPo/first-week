@@ -61,6 +61,10 @@ const exitButton = () => {
   navigate('/')
 }
 
+const openArticle = () => {
+  navigate('/article')
+}
+
 // const openArt = (isNoted: boolean)=>{
 // let resultFilt = facts.filter(f=>{
 //   if(f.isNoted === true){
@@ -76,7 +80,7 @@ const exitButton = () => {
         <Route path='/example' element={<Example task={task} onWrongAnswer={handleWrongAnswer} cancelHandleClick={cancelHandleClick} trueAnswer={trueAnswer}/>}/>
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
-        <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton} checkedFacts={checkedFacts} />}/>
+        <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton} checkedFacts={checkedFacts} openArticle={openArticle}/>}/>
         <Route path='/article' element={<OpenArticle facts={facts} />}/>
       </Routes>
     </div>

@@ -28,6 +28,7 @@ export const OpenArticle = (props: OpenArticlePropsType) => {
                 <div>
                 <h2>{f.title}</h2>
                 <h5>{f.article}</h5>
+                <h5>{location.state?.article}</h5>
                 </div>
                
                 )}

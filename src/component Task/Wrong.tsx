@@ -9,9 +9,6 @@ type WrongPropsType={
 export const Wrong = (props: WrongPropsType) => {
     const location = useLocation();
 
-
-
-
     return(
     
         <div>

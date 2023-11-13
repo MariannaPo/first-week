@@ -6,9 +6,11 @@ type FactsListPropsType = {
     facts: Array<{id: number, title: string, article: string, isNoted: boolean}>,
     exit:()=>void,
     checkedFacts: (factId: number, isNoted: boolean)=>void,
+    openArticle: ()=>void,
 }
 export const FactsList = (props: FactsListPropsType) => {
     const location = useLocation();
+
 
     return(
         <div>
@@ -26,7 +28,7 @@ export const FactsList = (props: FactsListPropsType) => {
             )
             }
           )}
-            <button>Продолжить</button>
+            <button onClick={props.openArticle}>Продолжить</button>
             <button onClick={props.exit}>Выход</button>
         </div>
     )
