@@ -8,30 +8,17 @@ type OpenArticlePropsType = {
 export const OpenArticle = (props: OpenArticlePropsType) => {
     const location = useLocation();
 
-
-    // const openArt = () => {
-    //     {props.facts.map((f)=>
-    //         <div>
-    //         <h2>{f.title}</h2>
-    //         <h5>{f.article}</h5>
-    //         </div>
-    //         )}
-    // }
-
-    // const filtArt = () => {
-    //     props.facts.filter(()=>{})
-    // }
-
     return(
         <div>
                 {props.facts.map((f)=>
+                {
+                    return(
                 <div>
                 <h2>{f.title}</h2>
                 <h5>{f.article}</h5>
-                <h5>{location.state?.article}</h5>
                 </div>
                
-                )}
+)})}
         </div>
 )
 }

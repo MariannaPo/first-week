@@ -27,8 +27,7 @@ function App() {
 ])
 
 const [article, setArticle] = useState('');
-    
-
+  
 
 function checkedFacts(factId: number, isNoted: boolean){
   let fact = facts.find(t => t.id === factId); 
@@ -65,13 +64,6 @@ const openArticle = () => {
   navigate('/article')
 }
 
-// const openArt = (isNoted: boolean)=>{
-// let resultFilt = facts.filter(f=>{
-//   if(f.isNoted === true){
-//     setFacts(resultFilt)
-//   }
-// })
-// }
 
   return (
     <div className="App">
@@ -81,7 +73,7 @@ const openArticle = () => {
         <Route path='/wrong' element={<Wrong  tryAgain={tryAgain} cancelHandleClick={cancelHandleClick}/>}/>
         <Route path='/cancel' element={<CancelButton/>}/>
         <Route path='/factsList' element={<FactsList facts={facts} exit={exitButton} checkedFacts={checkedFacts} openArticle={openArticle}/>}/>
-        <Route path='/article' element={<OpenArticle facts={facts} />}/>
+        <Route path='/article' element={<OpenArticle facts={facts.filter((f)=>{f.isNoted === true})} />}/>
       </Routes>
     </div>
   );
