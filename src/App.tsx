@@ -1,5 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import { Example } from './component Task/Example';
 import { Routes, Route, useNavigate } from 'react-router-dom';
@@ -14,7 +13,7 @@ function App() {
   const navigate = useNavigate();
  const [task, setTask] = useState([
     {id:1, taska:`4+4`, answer:8},
-    {id:2, taska:`4+9`, answer:13}
+    {id:2, taska:`4-9`, answer:13}
 ])
 
  const [facts, setFacts ]= useState([

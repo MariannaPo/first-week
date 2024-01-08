@@ -1,5 +1,4 @@
-
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent} from "react";
 import { useLocation } from "react-router-dom";
 
 type FactsListPropsType = {
@@ -9,7 +8,6 @@ type FactsListPropsType = {
     openArticle: ()=>void,
 }
 export const FactsList = (props: FactsListPropsType) => {
-    const location = useLocation();
 
 
     return(

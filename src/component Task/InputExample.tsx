@@ -1,6 +1,4 @@
-import { type } from "os";
 import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
-import { ExampleTaskPropsType } from "./Example";
 
 type InputExamplePropsType = {
     answer: number,
